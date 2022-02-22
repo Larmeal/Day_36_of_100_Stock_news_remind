@@ -12,8 +12,7 @@ data_delay = now.day - 4
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-api_key_alphavantage = "RZZJPFVNTUROOVD2"
-web_site_alphavantage = "https://www.alphavantage.co/query"
+
 document_tsla_symbol = {
     "function": "TIME_SERIES_INTRADAY",
     "symbol": STOCK,
@@ -39,8 +38,7 @@ else:
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
-api_key_newsapi = "c38da7905a1340dfb5694aa9cec72f03"
-web_site_newsapi = 'https://newsapi.org/v2/everything'
+
 document_tsla_info = {
        "q": COMPANY_NAME,
        "from": "2022-02-22",
@@ -58,8 +56,7 @@ report_today = [index["description"] for index in description_info]
 ## STEP 3: Use https://www.twilio.com
 # Send a separate message with the percentage change and each article's title and description to your phone number. 
 
-account_sid = "AC4c525788499cf21ebc1db315cfb429dc"
-auth_token = "93c5d06f9acb83fa5149b402cab4cd38"
+
 
 client = Client(account_sid, auth_token)
 
@@ -73,7 +70,7 @@ for article in report_today:
     Brief: {article}
                         """,
                         from_='+19034378260',
-                        to='+66614385165'
+                        
                     )
 
     print(message.status)
